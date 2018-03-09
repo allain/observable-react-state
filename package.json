@@ -1,6 +1,6 @@
 {
   "name": "observable-react-state",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "An observable state implementation that adopts react's approach to state management.",
   "author": "allain",
   "license": "ISC",
