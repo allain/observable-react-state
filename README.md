@@ -18,7 +18,7 @@ npm install --save observable-react-state
 
 import ObservableReactState from 'observable-react-state'
 
-// Flow type defining what the Counter
+// Flow type applied to state property
 type CounterStateType = {
   count: number
 }
@@ -35,7 +35,7 @@ class CounterState extends ObservableReactState<CounterStateType> {
 
   decrement() {
     // setState with a function
-    this.setState(state => ({...state, count: state.count+1}))
+    this.setState(state => ({...state, count: state.count - 1}))
   }
 }
 
