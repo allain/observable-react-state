@@ -1,26 +1,24 @@
-/**
- * @class ExampleComponent
- */
+// @flow
+import PushStream from 'zen-push'
 
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+export default class ObservableState<State> {
+  state: State
 
-import styles from './styles.css'
-
-export default class ExampleComponent extends Component {
-  static propTypes = {
-    text: PropTypes.string
+  constructor() {
+    this._stream = new PushStream()
+    this[Symbol.observable] = () => this
   }
 
-  render() {
-    const {
-      text
-    } = this.props
+  subscribe() {
+    let o = this._stream.observable
+    return o.subscribe.apply(o, arguments)
+  }
 
-    return (
-      <div className={styles.test}>
-        Example Component: {text}
-      </div>
-    )
+  setState(newState) {
+    this.state =
+      typeof newState === 'function'
+        ? newState(this.state)
+        : { ...this.state, ...newState }
+    this._stream.next(this)
   }
 }
