@@ -1,4 +1,5 @@
 // @flow
+
 import PushStream from 'zen-push'
 
 export default class ObservableState<State> {

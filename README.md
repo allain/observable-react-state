@@ -2,7 +2,6 @@
 
 > An observable state implementation based on React's Component State approach.
 
-
 [![NPM](https://img.shields.io/npm/v/observable-react-state.svg)](https://www.npmjs.com/package/observable-react-state)
 
 ## Install
